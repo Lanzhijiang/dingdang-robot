@@ -22,7 +22,7 @@ def handle(text, mic, profile, wxbot=None):
         input = text.replace(u"帮我", "")
     else:
         mic.say(u"开始家庭助手控制", cache=True)
-        mic.say(u'请在滴一声后说明内容', cache=True)
+        mic.say(u'请在滴一声后说明命令', cache=True)
         input = mic.activeListen(MUSIC=True)
     while not input:
         mic.say(u"请重新说", cache=True)
@@ -38,7 +38,7 @@ def hass(text, mic, profile):
     if not profile[SLUG] or 'url' not in profile[SLUG] or \
        'port' not in profile[SLUG] or \
        'password' not in profile[SLUG]:
-        mic.say(u"主人配置有误", cache=True)
+        mic.say(u"配置有误", cache=True)
         return
     url = profile[SLUG]['url']
     port = profile[SLUG]['port']
@@ -93,7 +93,7 @@ def hass(text, mic, profile):
                         pass
                     break
     else:
-        mic.say(u"对不起,指令不存在", cache=True)
+        mic.say(u"对不起,该指令不存在", cache=True)
 
 
 def isValid(text):
